@@ -1,36 +1,31 @@
 // Макарова Дарья Леонидовна ПИ 1-1 Цикл for и вложенные циклы
 #include <stdio.h>
+#include <windows.h>
+
 int main(void)
-{ int h, w;
-if (scanf("%d %d", &h, &w) != 2)
 {
-    printf("Input error");
-    return 0;
-}
+	SetConsoleOutputCP(CP_UTF8);
+	int h, w;
+	printf("Введите длину и ширину: ");
+	if (scanf("%d %d", &h, &w) != 2) {
+    printf("Input error\n");
+    return 1;
+	}
+	if (h < 2 || h > 10 || w < 2 || w > 10) {
+		printf("Range error\n");
+		return 1;
+	}
 
-if (h < 2 || h > 10 || w < 2 || w > 10)
-{
-    printf("Range error");
-    return 0;
-}
-
-for (int i = 1; i <= h; i++)
-{
-    for (int j = 1; j <= w; j++)
-    {
-        if (i == 1 2 || w > 10)
-j == 1 || j == w)
-        {
-            printf("*");
-        }
-        else
-        {
-            printf(" ");
-        }
-    }
-
-    printf("\n");
-}
-
-return 0;
+	for (int row = 1; row <= h; row++){
+		for (int col = 1; col <= w; col++) {
+			if (row == 1 || col == 1 || row == h || col == w){
+				printf("*");
+			}
+			else {
+				printf(" ");
+			}
+		}
+		printf("\n");
+	}
+	return 0;
 }
